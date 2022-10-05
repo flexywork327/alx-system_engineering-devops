@@ -1,1 +1,1 @@
-pwd
+a symbolic link to /bin/ls, named _ls_. The symbolic link should be created in the current working directory.
