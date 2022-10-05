@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -printf "%s\t%f\n"
+ln -s /bin/ls _ls_
