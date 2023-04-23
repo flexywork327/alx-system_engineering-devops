@@ -1,3 +1,5 @@
-# 0x0A. Configuration management
+# 0x0A-Configuration Management
 
-configuration management
+<h1 align='center'> Configuration management using puppet </h1>
+
+This Repo covers the basic to advanced concepts covered in Alx's software engineerng course
