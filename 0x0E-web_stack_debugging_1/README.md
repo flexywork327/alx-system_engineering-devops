@@ -10,4 +10,4 @@
 ---
 
 ## Author
-* **Bright Daniel** - (https://github.com/brightdaniel)
+* **Asare Felix** - (https://github.com/flexywork)
