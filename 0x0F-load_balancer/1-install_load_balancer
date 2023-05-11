@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2154
 # installs haproxy on a new load balancer and setups the config
-apt-get -y update
-apt-get -y install haproxy
-echo "ENABLED=1" | tee -a /etc/default/haproxy
-mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
-echo -e "defaults\n\tmode http\n\ttimeout connect 5000\n\ttimeout client 10000\n\ttimeout server 10000\n\ttimeout http-request 100\n\nfrontend myfrontend\n\tbind :80\n\tdefault_backend myservers\n\nbackend myservers\n\tserver 59637-web-01 54.160.85.72\n\tserver 59637-web-02 35.175.132.106" | tee /etc/haproxy/haproxy.cfg
-service haproxy restart
+
+sudo apt-get -y update
+sudo service haproxy start
+echo "frontend haproxynode
+        bind *:80
+	mode http
+	default_backend backendnodes
+backend backendnodes
+ 	balance roundrobin
+	server 161704-web-01 35.174.208.188:80 check
+	server 161704-web-02 54.236.16.246:80 check" | sudo tee -a /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
